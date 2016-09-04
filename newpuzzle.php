@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<?php 
+<?php
     require('dbconfig.php');
-    require('Validate.php');     
+    require('Validate.php');
     session_start();
 
     ?>
@@ -10,7 +10,7 @@
     <head>
 
         <title> New Puzzle </title>
-        <link rel="stylesheet" type="text/css" href="crate.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/crate.css">
 
     </head>
 
@@ -35,7 +35,7 @@
                     <ul>
                         <li><a href="index.php" class="list">Home</a></li>
                         <li><a href="puzzlelist.php" class="list">Puzzle List</a></li>
-                        <?php 
+                        <?php
                         if(isset($_SESSION['name']))
                         {
                             echo '<li><a href="logout.php" class="login">' . "Logout" . '</a></li>' ;
@@ -62,7 +62,7 @@
                     $recname = $_SESSION['name'] ;
 
                     $connect = mysqli_connect($server, $user, $pass, $db);
-                    if(!$connect) 
+                    if(!$connect)
                     {
                         printf("Connect failed: %s\n", $mysqli->connect_error);
                         exit();
@@ -80,7 +80,7 @@
                         {
                             if($result->num_rows > 0 )
                             {
-                                $err["newpuzname"] = true ; 
+                                $err["newpuzname"] = true ;
                             }
                             else
                             {
@@ -109,7 +109,7 @@
                         </div>
                         <div id="col2">
                             <div>
-                                <?php 
+                                <?php
 
                                 if(isset($_SESSION['name']))
                                 {
@@ -117,9 +117,9 @@
 
                                     if($_SERVER['REQUEST_METHOD'] === "GET" || isset($err))
                                     {
-                                       
-                                        if(count($_POST) > 0 ) 
-                                        { 
+
+                                        if(count($_POST) > 0 )
+                                        {
                                             //$name = $_POST['name'] ;
                                             $newpuzname = $_POST['newpuzname'] ;
                                         }
@@ -129,20 +129,20 @@
                                             $newpuzname = "" ;
                                         }
 
-                                    ?>  
+                                    ?>
                                         <form method="post" class="smart-green" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 
                                             <h1>New Puzzle Name <span>Please add name and submit.</span></h1>
-                                            <p><label for="name"><span>PuzzleName:*</span></label> 
-                                            <input class="input" type="text" name="newpuzname"  placeholder="testpuzzle" value="<?php print $newpuzname ?>"></p>    
+                                            <p><label for="name"><span>PuzzleName:*</span></label>
+                                            <input class="input" type="text" name="newpuzname"  placeholder="testpuzzle" value="<?php print $newpuzname ?>"></p>
 
                                             <p><input class="submit" type="submit" namprint $namee="submit" value="Submit"></p>
                                         </form>
 
-                                        <?php 
-                                    } 
-                                    
-                                } 
+                                        <?php
+                                    }
+
+                                }
                                 else
                                     {
                                         $_SESSION['newpuz'] = 'redirect';
@@ -155,13 +155,10 @@
                         </div>
                     </div>
                 </div>
-            </div>       
-        
+            </div>
+
         </div>
 
     </body>
 
 </html>
-
-
-

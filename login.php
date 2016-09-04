@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<?php 
+<?php
     require('dbconfig.php');
-    require('Validate.php');     
+    require('Validate.php');
     session_start();
 
     ?>
@@ -10,7 +10,7 @@
     <head>
 
         <title> Sign In </title>
-        <link rel="stylesheet" type="text/css" href="crate.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/crate.css">
 
     </head>
 
@@ -35,7 +35,7 @@
                     <ul>
                         <li><a href="index.php" class="list">Home</a></li>
                         <li><a href="puzzlelist.php" class="list">Puzzle List</a></li>
-                        <?php 
+                        <?php
                         if(isset($_SESSION['name']))
                         {
                             echo '<li><a href="logout.php" class="login">' . "Logout" . '</a></li>' ;
@@ -81,15 +81,15 @@
                     if(!isset($err))
                     {
                         $connect = mysqli_connect($server, $user, $pass, $db);
-                        
-                        if(!$connect) 
+
+                        if(!$connect)
                         {
                             printf("Connect failed: %s\n", $mysqli->connect_error);
                             exit();
-                        }  
+                        }
 
                         $md5pass = md5($password) ;
-                        
+
                         $sql = "Select tag from users where email = '$email' and password = '$md5pass'" ;
 
                         $result = $connect->query($sql);
@@ -117,7 +117,7 @@
                                 }
                             }
                             else
-                            {       
+                            {
                                 echo '<div class="errorbox error"><span>error: </span>Username or Pasword is Incorrect , Please try again</div>';
                             }
                         }
@@ -148,16 +148,16 @@
                         </div>
                         <div id="col2">
                             <div>
-                                <?php 
+                                <?php
 
                                 if( !(isset($_SESSION['name'])))
                                 {
 
                                     if($_SERVER['REQUEST_METHOD'] === "GET" || isset($err))
                                     {
-                                       
-                                        if(count($_POST) > 0 ) 
-                                        { 
+
+                                        if(count($_POST) > 0 )
+                                        {
                                             //$name = $_POST['name'] ;
                                             $email = $_POST['email'] ;
                                             $password = $_POST['pass'] ;
@@ -169,22 +169,22 @@
                                             $password = "";
                                         }
 
-                                    ?>  
+                                    ?>
                                         <form method="post" class="smart-green" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 
                                             <h1>Sign In <span>Please fill all the texts in the fields.</span></h1>
-                                            <p><label for="name"><span>Username:*</span></label> 
-                                            <input class="input" type="text" name="email"  placeholder="abc@domain.com" value="<?php print $email ?>"></p>    
+                                            <p><label for="name"><span>Username:*</span></label>
+                                            <input class="input" type="text" name="email"  placeholder="abc@domain.com" value="<?php print $email ?>"></p>
 
-                                            <p><label for="name"><span>Password:*</span></label> 
+                                            <p><label for="name"><span>Password:*</span></label>
                                             <input class="input" type="password" name="pass" placeholder="****" value="<?php print $password ?>"></p>
 
                                             <p><input class="submit" type="submit" namprint $namee="submit" value="Sign In"></p>
                                         </form>
 
-                                        <?php 
-                                    } 
-                                    
+                                        <?php
+                                    }
+
                                 }
                                 else
                                 {   ?>
@@ -196,8 +196,8 @@
                         </div>
                     </div>
                 </div>
-            </div>       
-        
+            </div>
+
         </div>
 
     </body>

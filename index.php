@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<?php 
+<?php
     session_start();
     ?>
 <html>
@@ -8,12 +8,12 @@
 	<head>
 
 		<title> Home </title>
-		<link rel="stylesheet" type="text/css" href="crate.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/crate.css">
 
 	</head>
 
-	<body class="game">   
-		
+	<body class="game">
+
 		<div id="main">
 
             <div id="header">
@@ -33,7 +33,7 @@
                     <ul>
                         <li><a href="index.php" class="list">Home</a></li>
                         <li><a href="puzzlelist.php" class="list">Puzzle List</a></li>
-                        <?php 
+                        <?php
                         if(isset($_SESSION['name']))
                         {
                             echo '<li><a href="logout.php" class="login">' . "Logout" . '</a></li>' ;
@@ -62,7 +62,7 @@
                 <div id="container2">
                     <div id="container1">
                         <div id="col1">
-                            <img src="crategame.gif" alt="Game Demo"> 
+                            <img src="crategame.gif" alt="Game Demo">
                         </div>
                         <div id="col2">
                             <div class="errorbox info">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div id="col3">
-                         <img src="crategame.gif" alt="Game Demo">   
+                         <img src="crategame.gif" alt="Game Demo">
                         </div>
                     </div>
                 </div>
@@ -111,9 +111,9 @@
 
 			<div id="container">
 
-			<script src="utils.js"> </script>
-			<script src="crateboard.js"> </script>
-		
+			<script src="js/utils.js"> </script>
+			<script src="js/crateboard.js"> </script>
+
 		</div>
 
 	</body>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<?php 
-require('dbconfig.php'); 
+<?php
+require('dbconfig.php');
     session_start();
     ?>
 <html>
@@ -8,7 +8,7 @@ require('dbconfig.php');
     <head>
 
         <title> Registration </title>
-        <link rel="stylesheet" type="text/css" href="crate.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/crate.css">
 
     </head>
 
@@ -33,7 +33,7 @@ require('dbconfig.php');
                     <ul>
                         <li><a href="index.php" class="list">Home</a></li>
                         <li><a href="puzzlelist.php" class="list">Puzzle List</a></li>
-                        <?php 
+                        <?php
                         if(isset($_SESSION['name']))
                         {
                             echo '<li><a href="logout.php" class="login">' . "Logout" . '</a></li>' ;
@@ -59,15 +59,15 @@ require('dbconfig.php');
                                 <?php
 
                                     $connect = mysqli_connect($server, $user, $pass, $db);
-                                    
-                                    if(!$connect) 
+
+                                    if(!$connect)
                                     {
                                         printf("Connect failed: %s\n", $mysqli->connect_error);
                                         exit();
-                                    }   
-                                    
+                                    }
+
                                     $result = $connect->query("select min(score) total,seedlev,puzname,name,recname from puzzles group by puzname");
-                                    
+
                                     if(!$result)
                                     {
                                        die("results have not been fetched");
@@ -80,10 +80,10 @@ require('dbconfig.php');
                                     <th>Game Creator</th>
                                     <th>Record Holder</th>
                                     <th>Score</th>
-                                
-                                <?php  
+
+                                <?php
                                     //echo nl2br("PuzzleName ==> Name , Recname ===> Score \n\n") ;
-                                    
+
                                     echo "<tr>" ;
                                     echo '<td><a href="newpuzzle.php" class="button">' . 'Create New Puzzle </a></td>';
                                     echo '<td>'  . "" . "</a></td>";
@@ -100,7 +100,7 @@ require('dbconfig.php');
                                         echo '<td>' . $row["total"]. "</a></td>";
                                         echo "</tr>" ;
                                     }
-                         
+
                                 ?>
                                 </table>
                             </div>
@@ -110,7 +110,7 @@ require('dbconfig.php');
                     </div>
                 </div>
             </div>
-        
+
         </div>
 
     </body>
